@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Saurav">
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+<title>Make Appointment</title>
+</head>
+
+<body class="bg-light">
+ <div class="container">
+ <body class="bg-light">
+ <div class="container">
+  <div class="py-5 text-center">
+    <img class="d-block mx-auto mb-4" src="{% static 'images/logo1.png' %}" alt="" width="300" height="72">
+    <!--<img class="d-block mx-auto mb-4" src="{% static 'logo.jpg' %}" alt="" width="72" height="72">-->
+    <h2>Appointment Form</h2>
+  </div>
+ </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+     <form id="appointment-form" role="form" method="post">
+      {% csrf_token %}
+    <div class="form-group">
+    <label for="exampleInputEmail1">First Name</label>
+       {{formAppointment.firstname}}
+    </div>
+    <div class="form-group">
+    <label for="exampleInputEmail1">Lastname</label>
+       {{formAppointment.lastname}}
+    </div>
+    <div class="form-group">
+    <label for="exampleInputEmail1">Email</label>
+       {{formAppointment.email}}
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+    <label for="date">Select Date</label>
+        <input type="date" name="date" value="" class="form-control">
+
+    </div>
+    <div class="form-group">
+    <label for="select">Select Doctor</label>
+        <select  name="doctor" class="form-control">
+            <option value='Dr. Kwakwak(Mananambal)'>Dr. Kwakwak(Mananambal)</option>
+            <option value='Dr. Jen (Cardiology)'>Dr. Jen (Cardiology)</option>
+            <option value='Dr. Tristan (Dental)'>Dr. Tristan (Dental)</option>
+            <option value='Dr. Juezan (Physical Therapist)'>Dr. Juezan (Physical Therapist)</option>
+            {{formAppointment.doctor}
+        </select>
+    </div>
+    <div class="form-group">
+    <label for="exampleInputEmail1">Phone</label>
+       {{formAppointment.phone}}
+    </div>
+    <div class="form-group">
+    <label for="exampleInputEmail1">Message</label>
+       {{formAppointment.message}}
+    </div>
+    <button type="submit" class="form-control btn btn-primary " id="cf-submit" name="submit"">Submit</button>
+  </form>
+    </div>
+  </div>
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; 2020-2021 Company Name</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="{% static '#' %}">Privacy</a></li>
+      <li class="list-inline-item"><a href="{% static '#' %}">Terms</a></li>
+      <li class="list-inline-item"><a href="{% static '#' %}">Support</a></li>
+    </ul>
+  </footer>
+  </div>
+</body>
+</html>
